@@ -26,7 +26,7 @@ task :release do
   valid_branches = %w{master layer}
   fail "Release can only be tagged from #{valid_branches.map { |s| "`#{s}`" }.join(', ')}" unless valid_branches.include?(current_branch)
   version = Time.now.strftime('%Y%m%d%H%M%S%3N').to_i
-  pod_release = PodRelease.new(name: 'FMDB-Layer', version: version, tag: version)
+  pod_release = PodRelease.new(name: 'FMDB', version: version, tag: version)
   
   erb = ERB.new(File.read(File.join(File.dirname(__FILE__), '.podspec.erb')))
   File.open(pod_release.filename, 'w+') { |f| f << erb.result(pod_release.get_binding) }
