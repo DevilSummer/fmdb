@@ -5,12 +5,12 @@
 
 Pod::Spec.new do |s|
   s.name = 'FMDB-Layer'
-  s.version = '20140926180614152'
+  s.version = '20140926180837036'
   s.summary = 'A Cocoa / Objective-C wrapper around SQLite.'
   s.homepage = 'https://github.com/ccgus/fmdb'
   s.license = 'MIT'
   s.author = { 'August Mueller' => 'gus@flyingmeat.com' }
-  s.source = { :git => 'https://github.com/ccgus/fmdb.git', :tag => '20140926180614152' }
+  s.source = { :git => 'https://github.com/layerhq/fmdb.git', :tag => '20140926180837036' }
   s.requires_arc = true
 
   s.default_subspec = 'standard'
