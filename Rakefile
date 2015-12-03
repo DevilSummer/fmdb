@@ -25,7 +25,7 @@ task :release do
   current_branch = `git symbolic-ref --short HEAD`.chomp
   valid_branches = %w{master layer}
   fail "Release can only be tagged from #{valid_branches.map { |s| "`#{s}`" }.join(', ')}" unless valid_branches.include?(current_branch)
-  version = '2.4-' + Time.now.strftime('%Y%m%d%H%M%S%3N')
+  version = '2.5-' + Time.now.strftime('%Y%m%d%H%M%S%3N')
   pod_release = PodRelease.new(name: 'FMDB', version: version, tag: version)
   
   erb = ERB.new(File.read(File.join(File.dirname(__FILE__), '.podspec.erb')))
