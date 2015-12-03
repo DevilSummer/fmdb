@@ -36,9 +36,10 @@ Pod::Spec.new do |s|
   s.subspec 'standalone' do |ss|
     ss.default_subspec = 'default'
     ss.dependency 'FMDB/common'
+    ss.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DFMDB_SQLITE_STANDALONE' }
     
     ss.subspec 'default' do |sss|
-      sss.dependency 'sqlite3'
+      sss.dependency 'sqlite3'      
     end
 
     # add FTS, custom FTS tokenizer source files, and unicode61 tokenizer support
