@@ -5,12 +5,12 @@
 
 Pod::Spec.new do |s|
   s.name = 'FMDB'
-  s.version = '2.5-20151203131152358'
+  s.version = '2.5-20151203132704171'
   s.summary = 'A Cocoa / Objective-C wrapper around SQLite.'
   s.homepage = 'https://github.com/ccgus/fmdb'
   s.license = 'MIT'
   s.author = { 'August Mueller' => 'gus@flyingmeat.com' }
-  s.source = { :git => 'https://github.com/layerhq/fmdb.git', :tag => '2.5-20151203131152358' }
+  s.source = { :git => 'https://github.com/layerhq/fmdb.git', :tag => '2.5-20151203132704171' }
   s.requires_arc = true
   s.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DHAVE_USLEEP=1' }  
   s.default_subspec = 'standard'
@@ -36,9 +36,10 @@ Pod::Spec.new do |s|
   s.subspec 'standalone' do |ss|
     ss.default_subspec = 'default'
     ss.dependency 'FMDB/common'
+    ss.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DFMDB_SQLITE_STANDALONE' }
     
     ss.subspec 'default' do |sss|
-      sss.dependency 'sqlite3'
+      sss.dependency 'sqlite3'      
     end
 
     # add FTS, custom FTS tokenizer source files, and unicode61 tokenizer support
