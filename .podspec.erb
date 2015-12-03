@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author = { 'August Mueller' => 'gus@flyingmeat.com' }
   s.source = { :git => 'https://github.com/layerhq/fmdb.git', :tag => '<%= tag %>' }
   s.requires_arc = true
-
+  s.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DHAVE_USLEEP=1' }  
   s.default_subspec = 'standard'
 
   s.subspec 'common' do |ss|
