@@ -43,7 +43,7 @@ task :release do
     system "git push origin #{current_branch} --tags"
     if $?.exitstatus.zero?
       puts "Executing `pod repo push layer #{pod_release.filename}`"
-      Bundler.with_clean_env { system "pod repo push layer #{pod_release.filename}" }
+      Bundler.with_clean_env { system "pod repo push layer --allow-warnings #{pod_release.filename}" }
     end
   end
 end
